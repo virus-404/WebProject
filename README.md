@@ -1,7 +1,7 @@
 # WebProject
 Pràctica de Projecte Web 
-  - Aaron Gil @AaronGil
+  - Aaron Gil 
   - Benjamí Ivernon
-  - Daniel Bellet @Sactorum
+  - Daniel Bellet 
   - Roger Baguer
-  - Agapito Gallart @virus-404
+  - Agapito Gallart @github/virus-404
