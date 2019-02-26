@@ -1,7 +1,9 @@
 # WebProject
-Pràctica de Projecte Web 
+Web project members:  
   - Aaron Gil 
   - Benjamí Ivernon
   - Daniel Bellet 
   - Roger Baguer
-  - Agapito Gallart @github/virus-404
+  - Agapito Gallart 
+  
+
