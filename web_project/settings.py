@@ -124,3 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
+STATIC_URL = STATIC_HOST + '/static/'
+
+LOGIN_REDIRECT_URL = 'redirect-login'
+CRISPY_TEMPLATE_PATH = 'bootstrap4'
