@@ -2,10 +2,15 @@ from django.db import models
 
 
 class Category(models.Model):
-    category_id = models.AutoField(primary_key=True)
-    category = models.CharField(max_length=16)
-    departament_type = models.CharField(max_length=16)
-    departament = models.CharField(max_length=16)
+
+    STR_PATTERN = "Categoria: {} Tipus:{} Departament: {}"
+
+    category = models.CharField(max_length=16, default='None')
+    departament_type = models.CharField(max_length=16, default='None')
+    departament = models.CharField(max_length=16, default='None')
+
+    def __str__(self):
+        return Category.STR_PATTERN.format(self.category, self.departament_type, self.departament)
 
 # La explicació es la següent: per a poder realitzar la llista de querrys fixos depenent del
 # departament y altres coses hem de tenir un identificador que ens doni tot del producte, ja que sino sera impossible
