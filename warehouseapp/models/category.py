@@ -6,8 +6,8 @@ class Category(models.Model):
     STR_PATTERN = "Categoria: {} Tipus:{} Departament: {}"
 
     category = models.CharField(max_length=16, default='None')
-    departament_type = models.CharField(max_length=16, default='None')
-    departament = models.CharField(max_length=16, default='None')
+    department_type = models.CharField(max_length=16, default='None')
+    department = models.CharField(max_length=16, default='None')
 
     def __str__(self):
         return Category.STR_PATTERN.format(self.category, self.departament_type, self.departament)
