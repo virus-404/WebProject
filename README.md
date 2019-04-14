@@ -102,3 +102,4 @@ Finnaly, there's the **Database tier**, capable of holding all of the informatio
 
 Additionally, there can be another separated group of containers that have the scripts necessary for the functionality of our App.
 
+![Server Diagram](/Captura_server_diagram.PNG)
