@@ -75,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/web_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
+              <caret line="127" lean-forward="true" selection-start-line="126" selection-start-column="35" selection-end-line="127" />
               <folding>
                 <element signature="e#311#331#0" expanded="true" />
               </folding>
@@ -173,8 +173,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="589" />
-    <option name="y" value="215" />
+    <option name="x" value="306" />
+    <option name="y" value="244" />
     <option name="width" value="1562" />
     <option name="height" value="555" />
   </component>
@@ -261,7 +261,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="589" y="215" width="1562" height="555" extended-state="0" />
+    <frame x="357" y="208" width="1562" height="555" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3242365" />
@@ -558,7 +558,7 @@
     <entry file="file://$PROJECT_DIR$/web_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+          <caret line="127" lean-forward="true" selection-start-line="126" selection-start-column="35" selection-end-line="127" />
           <folding>
             <element signature="e#311#331#0" expanded="true" />
           </folding>
