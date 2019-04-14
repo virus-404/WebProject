@@ -1,5 +1,5 @@
 # WebProject
-Web App develop for Web Project made by Daniel, Agapito, Aaron, Benjami y Roger.
+Web App develop for Web Project made by Daniel, Agapito, Aaron, Benjami and Roger.
 
 ## Initial problem
 Our idea is to implement a web application to manage the warehouse of a repair company that
