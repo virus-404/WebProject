@@ -130,4 +130,5 @@ STATIC_URL = STATIC_HOST + '/static/'
 
 LOGIN_REDIRECT_URL = 'redirect-login'
 CRISPY_TEMPLATE_PATH = 'bootstrap4'
+
 django_heroku.settings(locals())
