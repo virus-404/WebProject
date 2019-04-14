@@ -10,10 +10,10 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, related_name='category_product', on_delete=models.SET_NULL, null=True,
                                     verbose_name='Categoria producte')
 
-    marca = models.CharField(max_length=16, default='None')
+    brand = models.CharField(max_length=16, default='None')
     model = models.CharField(max_length=32, default='None')
-    Descripció = models.CharField(max_length=64, default='None')
-    Tipo_producto = models.CharField(max_length=64, default='None')
+    description = models.CharField(max_length=64, default='None')
+    product_type = models.CharField(max_length=64, default='None')
 
     quantity = models.PositiveIntegerField(default=0, verbose_name='Quantitat')
 
