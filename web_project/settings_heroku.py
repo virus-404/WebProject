@@ -5,5 +5,3 @@ django_heroku.settings(locals())
 
 
 DEBUG = False
-
-ALLOWED_HOSTS=['*']
