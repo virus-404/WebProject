@@ -9,7 +9,7 @@ class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     category_id = models.ForeignKey(Category, related_name='category_product', on_delete=models.SET_NULL, null=True,
                                     verbose_name='Categoria producte')
-
+    name = models.CharField(max_length=64, default='None')
     brand = models.CharField(max_length=16, default='None')
     model = models.CharField(max_length=32, default='None')
     description = models.CharField(max_length=64, default='None')

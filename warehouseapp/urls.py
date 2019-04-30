@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('tecnic/', views.home_tecnic, name='tecnic-home'),
     # path('comptabilitat/', views.home_operari, name='comptabilitat-home'),
+    # path('proveidors/', views.home_proveidors, name='comptabilitat-home'),
+    # path('CEO/', views.home_proveidors, name='comptabilitat-home'),
 ]

@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 
 
 def redirect_view(request):
-    if request.user.groups.filter(name='Productor').exists():
+    if request.user.groups.filter(name='Proveidors').exists():
         response = redirect('tecnic-home')
     elif request.user.groups.filter(name='Tecnic').exists():
         response = redirect('tecnic-home')
