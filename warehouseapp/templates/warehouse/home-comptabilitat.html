@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'warehouse/base-comptabilitat.html' %}
+{% block content %}
+<table>
+    <th>hçtitols</th>
+    {% for x in x%}
+        AQUI TREBALLES LA TAULA AMB CADA FILA QUE SIGUI UNA TUPLA DE LA BASE DE DADES
+    {% endfor %}
+</table>
 
-</body>
-</html>
+{% endblock content %}
