@@ -99,9 +99,16 @@
                 {% for item in items %}
                 <div class="card" >
                     <div class="card-body">
-                        <h4 class="card-title">{{ item.name }} </h4>
-                        <p> <h5> Descripcio: </h5> {{ item.description}} </p>
-                        <h5>Quantitat: {{ item.quantity}}</h5>
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="card-title">{{ item.name }} </h4>
+                                <p> <h5> Descripcio: </h5> {{ item.description}} </p>
+                                <h5> Quantitat: {{ item.quantity}} </h5>
+                            </div>
+                            <div class="col">
+                                aaaaaaaaaaaaaaaaa
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
