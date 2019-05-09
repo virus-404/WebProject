@@ -96,20 +96,41 @@
                 <div class="card" >
                     <div class="card-body">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-auto">
+
                                 <h4 class="card-title">{{ item.name }} </h4>
                                 <p> <h5> Descripcio: </h5> {{ item.description}} </p>
                                 <h5> Quantitat: {{ item.quantity}} </h5>
                             </div>
                             <div class="col">
-                                aaaaaaaaaaaaaaaaa
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col-md-4 col-lg-4 text-right">
+                                        <button type="button" class="btn btn-success btn-block mt-5"  data-toggle="modal" data-target="#acceptModal">Modificar</button>
+                                        <div class="modal fade" id="acceptModal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div align="left"><h5>Estas segur que vols guardar els canvis fets?</h5></div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                                                        <a class="btn btn-primary text-button"  href="#" role="button"> Guardar canvis </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
                 {% else %}
-                <p>No Products matched your search criteria.</p>
+                <div class="alert alert-secondary mt-2 mb-5" role="alert">
+                    No Products matched your search criteria.
+                </div>
                 {% endif %}
 
             </div>

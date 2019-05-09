@@ -25,7 +25,7 @@ class HomeTecnicList(ListView):
     def get_queryset(self):
         if 'q' in self.request.GET and self.request.GET['q']:
             q = self.request.GET['q']
-            items = Product.objects.filter(name__icontains=q).values('name')
+            items = Product.objects.filter(name__icontains=q)
             return items
         else:
             return Product.objects.all()
