@@ -23,22 +23,18 @@ class HomeTecnicList(ListView):
     template_name = 'warehouse/home-tecnic.html'
 
     def get_queryset(self):
-        return Product.objects.all
+        if 'q' in self.request.GET and self.request.GET['q']:
+            q = self.request.GET['q']
+            items = Product.objects.filter(name__icontains=q).values('name')
+            return items
+        else:
+            return Product.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Productes'
         return context
 
-
-def view_cards_products(request):
-    if 'q' in request.GET and request.GET['q']:
-        q = request.GET['q']
-        items = Product.objects.filter(name__icontains=q).values('name')
-        return render(request, 'warehouse/home-tecnic.html', {'items': items, 'query': Q})
-    else:
-        items = Product.objects.all()
-        return render(request, 'warehouse/home-tecnic.html', {'items': items})
 
 
 
