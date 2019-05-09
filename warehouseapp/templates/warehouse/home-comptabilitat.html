@@ -1,10 +1,37 @@
 {% extends 'warehouse/base-comptabilitat.html' %}
 {% block content %}
-<table>
-    <th>hçtitols</th>
-    {% for x in x%}
-        AQUI TREBALLES LA TAULA AMB CADA FILA QUE SIGUI UNA TUPLA DE LA BASE DE DADES
-    {% endfor %}
-</table>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body>
 
+<h2>Log file</h2>
+<table style="width:100%">
+  <tr>
+    <th>id_product</th>
+    <th>id_category</th>
+    <th>modified_quantity</th>
+    <th>date</th>
+   	<tr>
+    {% for tit in title %}
+    <tr>
+        <th>{{tit.product_id_change.name}}</th>
+        <th>{{tit.category_id_change.category}}</th>
+        <th>{{tit.quantity_modify}}</th>
+        <th>{{tit.date}}</th>
+    </tr>
+    {% endfor %}
+  </tr>
+
+</table>
+</body>
 {% endblock content %}
