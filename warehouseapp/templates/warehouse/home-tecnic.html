@@ -82,13 +82,39 @@
                             </div>
                             <!--end of col-->
                             <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit">Buscar</button>
+                                <a class="btn btn-lg btn-success" type="submit">Buscar</a>
                             </div>
                             <!--end of col-->
                     </div>
                 </form>
             </div>
             <!--end of col-->
-        </div>
+
+            <div class="scroll-panel mt-2 mb-5" style=" position: relative;
+                                      width: 100%;
+                                      height: calc(100vh - 275px);
+                                      min-height: 165px;
+                                      overflow-y: scroll;">
+                {% if items %}
+                <div class="card" style="max-width: 20rem;">
+                    {% for item in items %}
+                    <h3 class="card-header">
+                        {{ item.product_type }} : {{ item.brand }}
+                    </h3>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ item.model }} </h4>
+                        <p class="card-text">{{ item.description }} </p>
+                    </div>
+                    <div class="card-footer">
+                        Quantitat: {{ item.quantity}}
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>No Products matched your search criteria.</p>
+                {% endif %}
+
+            </div>
+
     </div>
 {% endblock content%}

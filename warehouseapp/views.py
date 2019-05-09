@@ -19,8 +19,11 @@ def home_comptatibilitat(request):
 
 class HomeTecnicList(ListView):
     model = Product
-    context_object_name = 'product_list'
+    context_object_name = 'items'
     template_name = 'warehouse/home-tecnic.html'
+
+    def get_queryset(self):
+        return Product.objects.all
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,12 +31,14 @@ class HomeTecnicList(ListView):
         return context
 
 
-
 def view_cards_products(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        items = Product.objects.filter(model_icontains = q)
-        return render(request, 'warehouse/view-cards-products.html',{'items':items, 'query': Q})
+        items = Product.objects.filter(model_icontains=q)
+        return render(request, 'warehouse/home-tecnic.html', {'items': items, 'query': Q})
     else:
         items = Product.objects.all()
-        return render(request, 'warehouse/view-cards-products.html', {'items': items})
+        return render(request, 'warehouse/home-tecnic.html', {'items': items})
+
+
+
