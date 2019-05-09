@@ -3,7 +3,7 @@ from django.db import models
 from warehouseapp.models.product import Product
 from django.db.models import Q
 from django import forms
-
+from .models import CatalogChange
 from django.views.generic import ListView
 # Create your views here.
 
@@ -35,6 +35,18 @@ class HomeTecnicList(ListView):
         context['title'] = 'Productes'
         return context
 
+class HomeComptabilitatList(ListView):
+    model = CatalogChange
+    context_object_name = 'items'
+    template_name = 'warehouse/home-comptabilitat.html'
+
+    def get_queryset(self):
+        return CatalogChange.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+        context['title'] = 'CatalogChanges'
+        return context
 
 
 
