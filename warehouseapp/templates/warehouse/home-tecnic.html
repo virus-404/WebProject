@@ -94,18 +94,16 @@
                 {% if items %}
                 {% for item in items %}
                 <div class="card" >
+                  <h5 class="card-header bg-dark text-white">{{ item.name }} </h5>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-auto">
-
-                                <h4 class="card-title">{{ item.name }} </h4>
-                                <p> <h5> Descripcio: </h5> {{ item.description}} </p>
-                                <h5> Quantitat: {{ item.quantity}} </h5>
+                            <div class="col">
+                                <h5> Descripció: </h5> {{ item.description}}
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <div class="col"></div>
-                                    <div class="col-md-4 col-lg-4 text-right">
+                                    <div class="col-auto text-right">
                                         <button type="button" class="btn btn-success btn-block mt-5"  data-toggle="modal" data-target="#acceptModal">Modificar</button>
                                         <div class="modal fade" id="acceptModal">
                                             <div class="modal-dialog" role="document">
@@ -125,7 +123,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer"> <h5> Quantitat: {{ item.quantity}} </h5> </div>
                 </div>
+                <p></p>
                 {% endfor %}
                 {% else %}
                 <div class="alert alert-secondary mt-2 mb-5" role="alert">
