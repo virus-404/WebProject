@@ -6,21 +6,22 @@
 {% block content %}
     {% if items %}
       <div class="card" style="max-width: 20rem;">
-        {% for item in item s%}
+        {% for item in items %}
         <h3 class="card-header">
-          {{ [item.product_type]: item.brand}}
+          {{ item.product_type }} : {{ item.brand }}
         </h3>
         <div class="card-body">
-          <h4 class="card-title">{{ item.model}} </h4>
-            <p class="card-text">{{ item.description}} </p>
+          <h4 class="card-title">{{ item.model }} </h4>
+            <p class="card-text">{{ item.description }} </p>
         </div>
         <div class="card-footer">
-          {{Cuantinty: item.quantity}}
+          Quantitat: {{ item.quantity}}
         </div>
       </div>
       {% endfor %}
     {% else %}
       <p>No Products matched your search criteria.</p>
+    {% endif %}
 {% endblock %}
 </div>
 
