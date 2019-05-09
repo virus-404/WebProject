@@ -34,7 +34,7 @@ class HomeTecnicList(ListView):
 def view_cards_products(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        items = Product.objects.filter(model_icontains=q)
+        items = Product.objects.filter(name__icontains=q).values('name')
         return render(request, 'warehouse/home-tecnic.html', {'items': items, 'query': Q})
     else:
         items = Product.objects.all()
