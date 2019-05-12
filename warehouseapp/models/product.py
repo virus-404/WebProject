@@ -9,7 +9,7 @@ class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     category_id = models.ForeignKey(Category, related_name='category_product', on_delete=models.PROTECT, null=True,
                                     verbose_name='Categoria producte')
-    name = models.CharField(max_length=64, default='None')
+    name = models.CharField(max_length=128, default='None')
     brand = models.CharField(max_length=16, default='None')
     model = models.CharField(max_length=32, default='None')
     description = models.CharField(max_length=64, default='None')
@@ -18,7 +18,7 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0, verbose_name='Quantitat')
 
     def __str__(self):
-        return Product.STR_PATTERN.format(self.product_id, self.category_id, self.quantity)
+        return Product.STR_PATTERN.format(self.product_id, self.name, self.category_id, self.quantity)
 
 
 # El problema principal d'aquesta base de dades es "Com creem una base de dades que organitzi tots els productes per

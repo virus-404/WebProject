@@ -44,11 +44,14 @@ def delete_product(request, pk):
     context = {}
     return render(request, template, context)
 
-def update_product(request, pk):
+def update_product(request, pk, counter):
     template = 'warehouse/update-product.html'
     context = {}
-    Product.objects.filter(pk=pk).update(quantity=F('quantity')+request.GET.get('i'))
-    CatalogChange.objects.create(product_id_change=Product.objects.get(pk=pk), category_id_change=Product.objects.get(pk=pk).category_id, quantity_modify=request.GET.get('i'), date=date.today())
+    change = 'i_'+str(counter)
+    change_to_apply= int(request.GET.get(change))
+    Product.objects.filter(pk=pk).update(quantity=F('quantity') + change_to_apply)
+    product_to_change= Product.objects.get(pk=pk)
+    nani = CatalogChange.objects.get_or_create(product_id_change=product_to_change, category_id_change=product_to_change.category_id, quantity_modify=change_to_apply, date=date.today())
 
     return render(request, template, context)
 

@@ -19,8 +19,6 @@ class CatalogChange(models.Model):
     # Contains all the changes of the object
     # history = HistoricalRecords()
 
-    class Meta:
-        unique_together = ("product_id_change", "category_id_change")
 
     def __str__(self):
         return CatalogChange.STR_PATTERN.format(self.product_id_change, self.category_id_change, self.quantity_modify)
