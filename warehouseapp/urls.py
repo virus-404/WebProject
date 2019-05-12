@@ -22,6 +22,7 @@ urlpatterns = [
     path('tecnic/', HomeTecnicList.as_view(), name='tecnic-home'),
     path('deleted/<int:pk>', views.delete_product, name='deleted-product'),
     path('modify/<int:pk>', views.update_product, name='update-product'),
+    path('search/', views.search_product, name='search-google'),
     path('comptabilitat/', HomeComptabilitatList.as_view(), name='comptabilitat-home'),
     # path('CEO/', views.home_proveidors, name='comptabilitat-home'),
     path('new_product/', NewProductView.as_view(), name='new_product_form'),

@@ -52,6 +52,11 @@ def update_product(request, pk):
 
     return render(request, template, context)
 
+def search_product(request):
+    template = 'warehouse/search-google.html'
+    context={}
+    return render(request, template, context)
+
 class HomeTecnicList(LoginRequiredMixin, ListView):
     login_url = ''
 
