@@ -1,0 +1,12 @@
+{% extends 'warehouse/base-tecnic.html' %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="//emiliocobos.net/demos/search-api/style.css"></link>
+<div class="container mt-2">
+<form action="http://google.com/search" method="GET">
+	<input type="text" name="q" id="search-submit">
+	<input type="submit" value="Buscar">
+	<input type="hidden" name="site">
+</form>
+<script type="text/javascript" src="URL_A_TU_SCRIPT.js"></script>
+</div>
+{% endblock content%}

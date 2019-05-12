@@ -1,0 +1,28 @@
+{% extends 'warehouse/base.html' %}
+{% block role %}
+
+{% include "warehouse/header-tecnic.html" %}
+<div class="container">
+{% block content %}
+    {% if items %}
+      <div class="card" style="max-width: 20rem;">
+        {% for item in items %}
+        <h3 class="card-header">
+          {{ item.product_type }} : {{ item.brand }}
+        </h3>
+        <div class="card-body">
+          <h4 class="card-title">{{ item.model }} </h4>
+            <p class="card-text">{{ item.description }} </p>
+        </div>
+        <div class="card-footer">
+          Quantitat: {{ item.quantity}}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p>No Products matched your search criteria.</p>
+    {% endif %}
+{% endblock %}
+</div>
+
+{% endblock role%}

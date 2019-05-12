@@ -5,12 +5,12 @@ from django.shortcuts import redirect
 
 
 def redirect_view(request):
-    if request.user.groups.filter(name='Productor').exists():
+    if request.user.groups.filter(name='Proveidors').exists():
         response = redirect('tecnic-home')
     elif request.user.groups.filter(name='Tecnic').exists():
         response = redirect('tecnic-home')
-    elif request.user.groups.filter(name='Contabilitat').exists():
-        response = redirect('contabilitat-home')
+    elif request.user.groups.filter(name='Comptabilitat').exists():
+        response = redirect('comptabilitat-home')
     elif request.user.groups.filter(name='Ceo').exists():
         response = redirect('ceo-home')
     else:
