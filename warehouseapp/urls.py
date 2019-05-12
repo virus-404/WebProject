@@ -20,7 +20,8 @@ from . import views
 
 urlpatterns = [
     path('tecnic/', HomeTecnicList.as_view(), name='tecnic-home'),
+    path('deleted/<int:pk>', views.delete_product, name='deleted-product'),
+    path('modify/<int:pk>', views.update_product, name='update-product'),
     path('comptabilitat/', HomeComptabilitatList.as_view(), name='comptabilitat-home'),
-    # path('proveidors/', views.home_proveidors, name='comptabilitat-home'),
     # path('CEO/', views.home_proveidors, name='comptabilitat-home'),
 ]

@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.db import models
 from warehouseapp.models.product import Product
-from django.db.models import Q
+from django.db.models import Q, F
 from django import forms
+from datetime import date
 from .models import CatalogChange
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, UpdateView, View
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 
 def home_tecnic(request):
@@ -17,7 +20,23 @@ def home_comptatibilitat(request):
     context['title'] = 'Home-Comptabilitat'
     return render(request, 'magatzem/home-comptabilitat.html', context)
 
-class HomeTecnicList(ListView):
+def delete_product(request, pk):
+    template = 'warehouse/deleted-product.html'
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    context = {}
+    return render(request, template, context)
+
+def update_product(request, pk):
+    template = 'warehouse/update-product.html'
+    context = {}
+    Product.objects.filter(pk=pk).update(quantity=F('quantity')+request.GET.get('i'))
+    CatalogChange.objects.create(product_id_change=Product.objects.get(pk=pk), category_id_change=Product.objects.get(pk=pk).category_id, quantity_modify=request.GET.get('i'), date=date.today())
+
+    return render(request, template, context)
+
+class HomeTecnicList(LoginRequiredMixin, ListView):
+    login_url = ''
     model = Product
     context_object_name = 'items'
     template_name = 'warehouse/home-tecnic.html'
@@ -35,9 +54,10 @@ class HomeTecnicList(ListView):
         context['title'] = 'Productes'
         return context
 
-class HomeComptabilitatList(ListView):
+class HomeComptabilitatList(LoginRequiredMixin, ListView):
+    login_url = ''
     model = CatalogChange
-    context_object_name = 'items'
+    context_object_name = 'products'
     template_name = 'warehouse/home-comptabilitat.html'
 
     def get_queryset(self):
