@@ -9,8 +9,8 @@ class CatalogChange(models.Model):
 
     STR_PATTERN = "Producte: {} Categoria:{} Unitats Modificades: {}"
 
-    product_id_change = models.ForeignKey(Product, related_name='product_id_change', on_delete=models.PROTECT, null=True, verbose_name='Producte')
-    category_id_change = models.ForeignKey(Category, related_name='category_product_change', on_delete=models.PROTECT, null=True,
+    product_id_change = models.ForeignKey(Product, related_name='product_id_change', on_delete=models.SET_NULL, null=True, verbose_name='Producte')
+    category_id_change = models.ForeignKey(Category, related_name='category_product_change', on_delete=models.SET_NULL, null=True,
                                                                                 verbose_name='Categoria producte')
     quantity_modify = models.PositiveIntegerField(default=0, verbose_name='Quantitat modificada')
 

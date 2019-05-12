@@ -24,6 +24,7 @@ def delete_product(request, pk):
     template = 'warehouse/deleted-product.html'
     product = get_object_or_404(Product, pk=pk)
     product.delete()
+    CatalogChange.objects.get(product_id_change=product).delete()
     context = {}
     return render(request, template, context)
 
