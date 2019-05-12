@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-=======
 from django.shortcuts import render, get_object_or_404
->>>>>>> fc805fa1ae2b5932bc9e93d8679fae1568970c52
+
 from django.db import models
 
 from warehouseapp.forms import NewProductForm
@@ -16,12 +15,11 @@ from .models import CatalogChange
 from django.views.generic import ListView, DetailView, UpdateView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-<<<<<<< HEAD
+
 from django.views.generic import ListView, TemplateView
 
 
-=======
->>>>>>> fc805fa1ae2b5932bc9e93d8679fae1568970c52
+
 # Create your views here.
 
 def home_tecnic(request):
@@ -35,10 +33,9 @@ def home_comptatibilitat(request):
     context['title'] = 'Home-Comptabilitat'
     return render(request, 'magatzem/home-comptabilitat.html', context)
 
-<<<<<<< HEAD
 
-class HomeTecnicList(ListView):
-=======
+
+
 def delete_product(request, pk):
     template = 'warehouse/deleted-product.html'
     product = get_object_or_404(Product, pk=pk)
@@ -57,7 +54,7 @@ def update_product(request, pk):
 
 class HomeTecnicList(LoginRequiredMixin, ListView):
     login_url = ''
->>>>>>> fc805fa1ae2b5932bc9e93d8679fae1568970c52
+
     model = Product
     context_object_name = 'items'
     template_name = 'warehouse/home-tecnic.html'
@@ -95,7 +92,6 @@ class NewProductView(TemplateView):
     def get(self, request):
         form = NewProductForm()
         categories = Category.category
-
         args = {'form': form, 'categories':categories}
         return render(request, self.template_name, args)
 

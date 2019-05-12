@@ -112,7 +112,7 @@
                                                         <div align="left"><h5>{{ item.name }}</h5></div>
                                                         <div align="right"><a class="btn btn-danger text-button"  href="{% url 'deleted-product' pk=item.pk %}" role="button"> Borrar </a>
                                                         <form method=”POST” action=" {% url 'update-product' item.pk %}">
-                                                          <div class="mt-2 mb-2" align="left"><h5>Quantitat a modificar</h5></div>
+                                                          <div class="mt-2 mb-2" align="left"><h5>Quantitat a afegir/treure</h5></div>
                                                             <div align="left"><input type="number" name="i" min="-{{ item.quantity }}"></div>
                                                           <div align="left"><button class="btn btn-success btn-block mt-5" type="submit">Guardar canvis</button></div>
                                                         </form>
