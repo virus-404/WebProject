@@ -1,7 +1,7 @@
 {% extends 'warehouse/base-tecnic.html' %}
 {% block content %}
     <div class="row">
-        <div class="col-auto">
+        <div class="col">
             <div class="container">
 	            <div class="row" >
 	                <div class="col bg-secondary">
@@ -104,16 +104,19 @@
                                 <div class="row">
                                     <div class="col"></div>
                                     <div class="col-auto text-right">
-                                        <button type="button" class="btn btn-success btn-block mt-5"  data-toggle="modal" data-target="#acceptModal">Modificar</button>
+                                        <button type="button" class="btn btn-primary btn-block mt-5"  data-toggle="modal" data-target="#acceptModal">Modificar</button>
                                         <div class="modal fade" id="acceptModal">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
-                                                        <div align="left"><h5>Estas segur que vols guardar els canvis fets?</h5></div>
+                                                        <div align="left"><h5>{{ item.name }}</h5></div>
+                                                        <div align="right"><a class="btn btn-danger text-button"  href="{% url 'deleted-product' pk=item.pk %}" role="button"> Borrar </a>
+                                                        <form method=”POST” action=" {% url 'update-product' item.pk %}">
+                                                          <div class="mt-2 mb-2" align="left"><h5>Quantitat a modificar</h5></div>
+                                                            <div align="left"><input type="number" name="i" min="-{{ item.quantity }}"></div>
+                                                          <div align="left"><button class="btn btn-success btn-block mt-5" type="submit">Guardar canvis</button></div>
+                                                        </form>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
-                                                        <a class="btn btn-primary text-button"  href="#" role="button"> Guardar canvis </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,7 +132,7 @@
                 {% endfor %}
                 {% else %}
                 <div class="alert alert-secondary mt-2 mb-5" role="alert">
-                    No Products matched your search criteria.
+                    No hi ha productes amb els criteris aportats.
                 </div>
                 {% endif %}
 

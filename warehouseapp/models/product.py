@@ -7,7 +7,7 @@ class Product(models.Model):
     STR_PATTERN = "Producte: {} Categoria:{} Unitats: {}"
 
     product_id = models.AutoField(primary_key=True)
-    category_id = models.ForeignKey(Category, related_name='category_product', on_delete=models.SET_NULL, null=True,
+    category_id = models.ForeignKey(Category, related_name='category_product', on_delete=models.PROTECT, null=True,
                                     verbose_name='Categoria producte')
     name = models.CharField(max_length=64, default='None')
     brand = models.CharField(max_length=16, default='None')
