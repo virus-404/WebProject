@@ -6,12 +6,11 @@ from django.shortcuts import render, get_object_or_404
 from django.db import models
 
 from warehouseapp.forms import NewProductForm
-from warehouseapp.models import Category
 from warehouseapp.models.product import Product
 from django.db.models import Q, F
 from django import forms
 from datetime import date
-from .models import CatalogChange
+from .models import CatalogChange, Category
 from django.views.generic import ListView, DetailView, UpdateView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -25,6 +24,17 @@ from django.views.generic import ListView, TemplateView
 def home_tecnic(request):
     context = {}
     context['title'] = 'Home-Tecnic'
+
+    categories = Category.objects.get(category=Category)
+
+
+    disc_dur_category = Category.filter(category="Disc dur")
+    font_alimentacio_category = Category.filter(category="Font alimentacio")
+    placa_base_category = Category.filter(category="Placa base")
+    ssd_category = Category.filter(category="Memoria SSD")
+    ram_category = Category.filter(category="Memoria RAM")
+    microprocessador_category = Category.filter(category="Microprocessador")
+
     return render(request, 'warehouse/home-tecnic.html', context)
 
 
@@ -55,10 +65,12 @@ def update_product(request, pk, counter):
 
     return render(request, template, context)
 
+
 def search_product(request):
     template = 'warehouse/search-google.html'
     context={}
     return render(request, template, context)
+
 
 class HomeTecnicList(LoginRequiredMixin, ListView):
     login_url = ''
