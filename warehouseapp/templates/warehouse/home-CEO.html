@@ -1,0 +1,255 @@
+<style type="text/CSS">
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+
+#wrapper {
+    padding-left: 0;
+}
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+    #page-wrapper {
+        padding: 22px 10px;
+    }
+}
+
+
+.top-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    /*border: 1px solid rgba(0,0,0,.15);*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 60px;
+        left: 225px;
+        width: 208px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        overflow-y: auto;
+        background-color: #222;
+        /*background-color: #5A6B7D;*/
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        border-bottom: 1px rgba(0,0,0,.3) solid;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #1a242f !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+    border-bottom: 1px rgba(0,0,0,.3) solid;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    /*color: #999;*/
+    color: #fff;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+.navbar .nav > li > a > .label {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  min-width: 15px;
+  min-height: 15px;
+  line-height: 1.0em;
+  text-align: center;
+  padding: 2px;
+}
+
+.navbar .nav > li > a:hover > .label {
+  top: 10px;
+}
+
+</style>
+<script>
+
+    $(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".side-nav .collapse").on("hide.bs.collapse", function() {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    $('.side-nav .collapse').on("show.bs.collapse", function() {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+    });
+})
+
+</script>
+{% extends 'warehouse/base-CEO.html' %}
+<!------ Include the above in your HEAD tag ---------->
+
+
+{% block content %}
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div id="body">
+    <div id="sidebar">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#menu-1"><i class="fa fa-fw fa-search"></i>BUSCADOR</a>
+                </li>
+
+
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1">
+                        <i class="fa fa-fw fa-star"></i> DISC DURS<i class="fa fa-fw fa-angle-down pull-right"></i>
+                    </a>
+                    <ul id="submenu-1" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SSD </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> HDD </a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> FONTS ALIMENTACIÓ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-2" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MODULAR </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> NO MODULAR </a></li>
+                    </ul>
+                </li>                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-star"></i>  PLAQUES BASE <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-3" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MONO PROCESSADOR </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MULTI PROCESSADOR </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-fw fa-star"></i>  MEMORIES RAM <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-4" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR2 </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR3 </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR4 </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-5"><i class="fa fa-fw fa-star"></i>  PROCESSADORS <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-5" class="collapse">
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I3 </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I5 </a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I7 </a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+            <div class="col">
+                <form id=”search” method=”GET” action=" {% url 'tecnic-home' %}">
+                    <div class="card-body row align-items-center">
+                        <i class="fa fa-search" style='font-size:30px'></i>
+                            <!--end of col-->
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless" type="search"  name="q"  placeholder="Inserta que vol buscar">
+                            </div>
+                            <!--end of col-->
+                    </div>
+                </form>
+            </div>
+            <!--end of col-->
+
+            <div class="scroll-panel mt-2 mb-5" style=" position: relative;
+                                      width: 100%;
+                                      height: calc(100vh - 275px);
+                                      min-height: 165px;
+                                      overflow-y: scroll;">
+                {% if items %}
+                {% for item in items %}
+                <div class="card" >
+                  <h5 class="card-header bg-dark text-white">{{ item.name }} </h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5> Descripció: </h5> {{ item.description}}
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col-auto text-right">
+                                        <button type="button" class="btn btn-primary btn-block mt-5"  data-toggle="modal" data-target="#acceptModal">Modificar</button>
+                                        <div class="modal fade" id="acceptModal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div align="left"><h5>{{ item.name }}</h5></div>
+                                                        <div align="right"><a class="btn btn-danger text-button"  href="{% url 'deleted-product' pk=item.pk %}" role="button"> Borrar </a>
+                                                        <form method=”POST” action=" {% url 'update-product' pk=item.pk counter=forloop.counter %}">
+                                                          <div class="mt-2 mb-2" align="left"><h5>Quantitat a afegir/treure</h5></div>
+                                                            <div align="left"><input type="number" name="i_{{ forloop.counter}}" min="-{{ item.quantity }}"></div>
+                                                          <div align="left"><button class="btn btn-success btn-block mt-5" type="submit">Guardar canvis</button></div>
+                                                        </form>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer"> <h5> Quantitat: {{ item.quantity}} </h5> </div>
+                </div>
+                <p></p>
+                {% endfor %}
+                {% else %}
+                <div class="alert alert-secondary mt-2 mb-5" role="alert">
+                    No hi ha productes amb els criteris aportats.
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock content%}
+
+

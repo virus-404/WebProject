@@ -123,5 +123,8 @@ class NewProductView(TemplateView):
 
         return render(request, self.template_name, {'form':form})
 
-
+def home_proveidors(request):
+    context = {}
+    context['title'] = 'Home-CEO'
+    return render(request, 'warehouse/home-CEO.html', context)
 
