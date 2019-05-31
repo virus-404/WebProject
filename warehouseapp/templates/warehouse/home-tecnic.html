@@ -128,85 +128,39 @@
 
 {% block content %}
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<span vocab="http://schema.org/">
     <div id="body">
-    <div id="sidebar">
-            <ul class="nav navbar-nav side-nav">
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#menu-1"><i class="fa fa-fw fa-search"></i>BUSCADOR</a>
-                </li>
-
-
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-1">
-                        <i class="fa fa-fw fa-star"></i> DISC DURS<i class="fa fa-fw fa-angle-down pull-right"></i>
-                    </a>
-                    <ul id="submenu-1" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SSD </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> HDD </a></li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> FONTS ALIMENTACIÓ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-2" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MODULAR </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> NO MODULAR </a></li>
-                    </ul>
-                </li>                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-star"></i>  PLAQUES BASE <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-3" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MONO PROCESSADOR </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> MULTI PROCESSADOR </a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-fw fa-star"></i>  MEMORIES RAM <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-4" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR2 </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR3 </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> DDR4 </a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-5"><i class="fa fa-fw fa-star"></i>  PROCESSADORS <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-5" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I3 </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I5 </a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> I7 </a></li>
-                    </ul>
-                </li>
-
-
-            </ul>
-        </div>
             <div class="col">
+                <span typeof="SearchAction">
                 <form id=”search” method=”GET” action=" {% url 'tecnic-home' %}">
                     <div class="card-body row align-items-center">
                         <i class="fa fa-search" style='font-size:30px'></i>
-                            <!--end of col-->
+                        <!--end of col-->
                             <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" type="search"  name="q"  placeholder="Inserta que vol buscar">
+                                <span property="query"> <input class="form-control form-control-lg form-control-borderless" type="search"  name="q"  placeholder="Inserta que vol buscar"> </span>
                             </div>
-                            <!--end of col-->
+                        <!--end of col-->
                     </div>
                 </form>
+                </span>
             </div>
-            <!--end of col-->
-
+        <!--end of col-->
             <div class="scroll-panel mt-2 mb-5" style=" position: relative;
                                       width: 100%;
                                       height: calc(100vh - 275px);
                                       min-height: 165px;
                                       overflow-y: scroll;">
                 {% if items %}
+                <span typeof="ItemList">
                 {% for item in items %}
+                <span rel="itemListElement" typeof="ListItem">
+                    <span style="display:none;" property="position">{{ forloop.counter }}</span>
                 <div class="card" >
-                  <h5 class="card-header bg-dark text-white">{{ item.name }} </h5>
+                  <h5 class="card-header bg-dark text-white"><span property="name">{{ item.name }}</span> </h5>
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5> Descripció: </h5> {{ item.description}}
+                                <h5> Descripció: </h5>  <span property="description">{{ item.description}}</span>
                             </div>
                             <div class="col">
                                 <div class="row">
@@ -234,10 +188,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer"> <h5> Quantitat: {{ item.quantity}} </h5> </div>
+                    <div class="card-footer"> <h5> Quantitat: <span property="identifier">{{ item.quantity}}</span> </h5> </div>
                 </div>
                 <p></p>
+                </span>
                 {% endfor %}
+                </span>
                 {% else %}
                 <div class="alert alert-secondary mt-2 mb-5" role="alert">
                     No hi ha productes amb els criteris aportats.
@@ -245,11 +201,8 @@
                 {% endif %}
 
             </div>
-        </div>
     </div>
-
-</body>
-
+</span>
 {% endblock content%}
 
 

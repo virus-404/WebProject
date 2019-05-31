@@ -91,11 +91,31 @@ class HomeTecnicList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Productes'
         return context
+class HomeCEOList(LoginRequiredMixin, ListView):
+    login_url = ''
+
+    model = Product
+    context_object_name = 'items'
+    template_name = 'warehouse/home-CEO.html'
+
+    def get_queryset(self):
+        if 'q' in self.request.GET and self.request.GET['q']:
+            q = self.request.GET['q']
+            items = Product.objects.filter(name__icontains=q)
+            return items
+        else:
+            return Product.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Productes'
+        return context
+
 
 class HomeComptabilitatList(LoginRequiredMixin, ListView):
     login_url = ''
     model = CatalogChange
-    context_object_name = 'products'
+    context_object_name = 'items'
     template_name = 'warehouse/home-comptabilitat.html'
 
     def get_queryset(self):
@@ -105,7 +125,19 @@ class HomeComptabilitatList(LoginRequiredMixin, ListView):
         context= super().get_context_data(**kwargs)
         context['title'] = 'CatalogChanges'
         return context
+class ComptabilitatCEOList(LoginRequiredMixin, ListView):
+    login_url = ''
+    model = CatalogChange
+    context_object_name = 'items'
+    template_name = 'warehouse/comptabilitat.html'
 
+    def get_queryset(self):
+        return CatalogChange.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'CatalogChanges'
+        return context
 class NewProductView(TemplateView):
     template_name = 'warehouse/new-product.html'
 
