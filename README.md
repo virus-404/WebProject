@@ -68,8 +68,11 @@ different pieces in the catalog. (Now we have decided to use the Google Custom S
 - [x] Functionality to delete products of database
 - [x] Functionality to update products on databas
 - [x] API implementation for future use
+<<<<<<< HEAD
 ### Third Deliverable:
 - [x] Implemented Spans with vocab of "schema.org" so that it can be interpreted the complexity of the database
+=======
+>>>>>>> master
 #### Implemented functionality in Second Deliverable
 ##### New product
 The way to add new products to the data base is simple: in the "Tecnics" home, you'll find a button on the header, in the nav, that's says "Nou producte", this button will lead you to a form, in which you can fill de information for the new product.
@@ -98,11 +101,14 @@ For checking the admin and the functionality of the admin, please use the follow
     Username: comptabilitat
     Password: tcmp12345   
     
+<<<<<<< HEAD
 ##### CEO
 
     Username: CEO
     Password: ceo12345
     
+=======
+>>>>>>> master
 #### Login implementation
 
 In order to make a login that will work with our vision, we have used *crispy forms* for better coding, better view callings
