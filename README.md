@@ -98,14 +98,12 @@ For checking the admin and the functionality of the admin, please use the follow
     Username: comptabilitat
     Password: tcmp12345   
     
-<<<<<<< HEAD
 ##### CEO
 
     Username: CEO
     Password: ceo12345
     
-=======
->>>>>>> master
+
 #### Login implementation
 
 In order to make a login that will work with our vision, we have used *crispy forms* for better coding, better view callings
