@@ -1,0 +1,45 @@
+{% extends 'warehouse/base-CEO.html' %}
+{% block content %}
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+
+
+<span vocab="http://schema.org/">
+  <h2 class="mt-2">Log file</h2>
+
+  <table class="table-bordered mt-2" width="100%" style="text-align: center; overflow-x:auto">
+    <tr>
+      <th><h5>Producte</h5></th>
+      <th><h5>Categoria</h5></th>
+      <th><h5>Quantitat modificada</h5></th>
+      <th><h5>Data</h5></th>
+    </tr>
+    <span typeof="ItemList">
+      {% for item in items %}
+        <span rel="itemListElement" typeof="ListItem">
+          <span style="display:none;" property="position">{{ forloop.counter }}</span>
+          <span style="display:none;" property="name">{{ item.product_id_change.name }}</span>
+          <span style="display:none;" property="disambiguatingDescription">{{ item.category_id_change.category }}</span>
+            <span style="display:none;" property="identifier">{{ item.quantity_modify }}</span>
+            <span style="display:none;" property="position">{{ item.date }}</span>
+          <tr>
+            <th>{{ item.product_id_change.name }}</th>
+            <th>{{ item.category_id_change.category }}</th>
+            <th>{{ item.quantity_modify }}</th>
+            <th>{{ item.date }}</th>
+          </tr>
+        </span>
+      {% endfor %}
+    </span>
+  </table>
+
+</span>
+{% endblock content %}

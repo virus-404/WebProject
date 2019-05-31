@@ -122,7 +122,7 @@
 })
 
 </script>
-{% extends 'warehouse/base-tecnic.html' %}
+{% extends 'warehouse/base-CEO.html' %}
 <!------ Include the above in your HEAD tag ---------->
 
 
@@ -131,19 +131,18 @@
 <span vocab="http://schema.org/">
     <div id="body">
             <div class="col">
-                <span typeof="SearchAction">
                 <form id=”search” method=”GET” action=" {% url 'tecnic-home' %}">
                     <div class="card-body row align-items-center">
                         <i class="fa fa-search" style='font-size:30px'></i>
                         <!--end of col-->
                             <div class="col">
-                                <span property="query"> <input class="form-control form-control-lg form-control-borderless" type="search"  name="q"  placeholder="Inserta que vol buscar"> </span>
+                              <input class="form-control form-control-lg form-control-borderless" type="search"  name="q"  placeholder="Inserta que vol buscar">
                             </div>
                         <!--end of col-->
                     </div>
                 </form>
-                </span>
             </div>
+        <!--end of c
         <!--end of col-->
             <div class="scroll-panel mt-2 mb-5" style=" position: relative;
                                       width: 100%;
@@ -155,36 +154,14 @@
                 {% for item in items %}
                 <span rel="itemListElement" typeof="ListItem">
                     <span style="display:none;" property="position">{{ forloop.counter }}</span>
+                    <span style="display:none;" property="url">{% url 'tecnic-home' %}</span>
+
                 <div class="card" >
                   <h5 class="card-header bg-dark text-white"><span property="name">{{ item.name }}</span> </h5>
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
                                 <h5> Descripció: </h5>  <span property="description">{{ item.description}}</span>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col"></div>
-                                    <div class="col-auto text-right">
-                                        <button type="button" class="btn btn-primary btn-block mt-5"  data-toggle="modal" data-target="#acceptModal_{{ forloop.counter}}">Modificar</button>
-                                        <div class="modal fade" id="acceptModal_{{ forloop.counter}}">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <div align="left"><h5>{{ item.name }}</h5></div>
-                                                        <div align="right"><a class="btn btn-danger text-button"  href="{% url 'deleted-product' pk=item.pk %}" role="button"> Borrar </a>
-                                                        <form method=”POST” action=" {% url 'update-product' pk=item.pk counter=forloop.counter %}">
-                                                          <div class="mt-2 mb-2" align="left"><h5>Quantitat a afegir/treure</h5></div>
-                                                            <div align="left"><input type="number" name="i_{{ forloop.counter}}" min="-{{ item.quantity }}"></div>
-                                                          <div align="left"><button class="btn btn-success btn-block mt-5" type="submit">Guardar canvis</button></div>
-                                                        </form>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
