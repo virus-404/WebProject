@@ -57,7 +57,7 @@ different pieces in the catalog. (Now we have decided to use the Google Custom S
 
 ## Checklist of implemented funcionalities:
 ### First Deliverable:
-- [X] Models: created and revised for better functionality
+- [ X ] Models: created and revised for better functionality
 - [x] Admin: activated and possible to midify the database
 - [x] Login: login system with users and user administration with forms
 - [x] Heroku deployment
