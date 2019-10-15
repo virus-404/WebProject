@@ -100,7 +100,7 @@ For checking the admin and the functionality of the admin, please use the follow
     
 ##### CEO
 
-    Username: CEO
+    Username: ceo
     Password: ceo12345
     
 
